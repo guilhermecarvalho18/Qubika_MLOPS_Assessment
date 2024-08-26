@@ -33,12 +33,18 @@ src.fit(X_train, y_train)
 y_pred = src.predict(X_test)
 print(y_pred)
 
+# Ensure the prod_exports directory exists
+export_dir = "prod_exports"
+if not os.path.exists(export_dir):
+    os.makedirs(export_dir)
+
 # Saving the trained model to a file
-with open("prod_exports/logistic_regression_model.pkl", "wb") as f:
+model_path = os.path.join(export_dir, "logistic_regression_model.pkl")
+with open(model_path, "wb") as f:
     pickle.dump(src, f)
 
 # Save the scaler to a file
-scaler_path = os.path.join("prod_exports/scaler.pkl")
+scaler_path = os.path.join(export_dir, "scaler.pkl")
 with open(scaler_path, "wb") as f:
     pickle.dump(scaler, f)
 
