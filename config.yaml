@@ -1,0 +1,7 @@
+# config.yaml
+database:
+  url: ${DATABASE_URL}
+
+storage:
+  provider: ${STORAGE_PROVIDER}
+  bucket: ${BUCKET_NAME}
